@@ -1,0 +1,61 @@
+{
+    "name": "sio/at-dispo",
+    "description": "Gestionnaire employe du temps pour les formateur",
+    "type": "projet",
+    "require": {
+        "tecnickcom/tcpdf": "^6.6"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.4"
+    },
+    "authors": [
+        {
+            "name": "dedeception",
+            "email": "antoine.zimmer.gambsheim@gmail.com",
+            "homepage": "https://antoine-zimmer.fr/",
+            "role": "Développeur"
+        },
+        {
+            "name": "enzo-chaboisseau",
+            "email": "enzo.chaboisseau@gmail.com",
+            "homepage": "https://enzo.chaboisseau.net/",
+            "role": "Développeur"
+        },
+        {
+            "name": "erwan-brion",
+            "email": "ebrion02@gmail.com",
+            "homepage": "https://erwan-brion.net/",
+            "role": "Développeur"
+        },
+        {
+            "name": "lucas-khaznaji",
+            "email": "lucas.khaznaji@gmail.com",
+            "role": "Développeur"
+        },
+        {
+            "name": "yanis-stentzel",
+            "email": "yanistentzl@gmail.com",
+            "homepage": "https://yanisstentzel.fr/",
+            "role": "Développeur - Designer"
+        },
+        {
+            "name": "tess-nassivet",
+            "email": "tess123gribouille@gmail.com",
+            "homepage": "https://tessnassivet.fr/",
+            "role": "Développeur"
+        }
+    ],
+    "support": {
+        "email": "support@At-dispo.fr",
+        "docs": "https://doc.at-dispo.antoine-zimmer.fr/"
+    },
+    "autoload": {
+        "classmap": [
+            "app/"
+        ],
+        "psr-4": {
+            "Models\\": "models/",
+            "App\\Controllers\\": "app/controller/"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+<map id="App\Core\Controller\notLogin" name="App\Core\Controller\notLogin">
+<area shape="rect" id="node1" title="Empêche les utilisateurs connectés d&#39;accéder à la page." alt="" coords="283,104,432,145"/>
+<area shape="rect" id="node2" href="$dd/d2d/classApp_1_1Controllers_1_1AuthentificationController.html#ae31697a0382fc8fb00a7ac3da0337495" title="Fonction de login." alt="" coords="5,5,235,47"/>
+<area shape="rect" id="node3" href="$dd/d2d/classApp_1_1Controllers_1_1AuthentificationController.html#a0537f13405154f0548356805029f3da4" title="Traitement de la demande de connexion." alt="" coords="5,71,235,112"/>
+<area shape="rect" id="node4" href="$dd/d2d/classApp_1_1Controllers_1_1AuthentificationController.html#a3379b68d02cdf1f760bc8e5e5043ed14" title="Affiche la page d&#39;inscription." alt="" coords="5,136,235,177"/>
+<area shape="rect" id="node5" href="$dd/d2d/classApp_1_1Controllers_1_1AuthentificationController.html#aea8033ae7f610e82659b794d2023dc1a" title="Traitement de la demande d&#39;inscription." alt="" coords="5,201,235,243"/>
+</map>

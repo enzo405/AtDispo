@@ -1,0 +1,17 @@
+.Exception {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.Exception p {
+    font-size: var(--grand-texte);
+    font-weight: bold;
+}
+
+.Exception img {
+    width: 500px;
+    border-radius: 10px;
+}

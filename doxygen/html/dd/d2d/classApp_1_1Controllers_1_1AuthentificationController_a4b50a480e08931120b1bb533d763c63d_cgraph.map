@@ -1,0 +1,4 @@
+<map id="App\Controllers\AuthentificationController\logout" name="App\Controllers\AuthentificationController\logout">
+<area shape="rect" id="node1" title="Déconnexion." alt="" coords="5,5,235,47"/>
+<area shape="rect" id="node2" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a7cd579fe66200f3d05160e48493ac598" title="Empêche les utilisateurs non&#45;connectés d&#39;accéder à la page." alt="" coords="283,5,432,47"/>
+</map>

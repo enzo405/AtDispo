@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Core\Controller;
+use Models\AffichagesTypesFermeture;
+use Models\EtatsDisponibilite;
+use Models\Matieres;
+use Models\OptionsFormation;
+use Models\SitesOrgaFormation;
+use Models\User;
+use Models\CalendriersDisponibilite;
+use Models\Fermeture;
+use Models\NomsFermeture;
+use Models\OrganismesFormation;
+use Models\TypesCreneau;
+use Models\CreneauDisponibilite;
+use Models\Formations;
+use Models\NomsFormation;
+use Models\Role;
+use Models\TypesFermeture;
+
+class TestController extends Controller
+{
+    public function index()
+    {
+        $this->render('index');
+    }
+}

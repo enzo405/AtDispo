@@ -1,0 +1,30 @@
+.conteneurPrincipal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.conteneurPrincipal h2 {
+    margin-bottom: 10px;
+}
+
+.conteneurPrincipal p {
+    margin-bottom: 5px;
+}
+
+/* Media query pour écrans plus petits (par exemple, jusqu'à 600px de large) */
+@media screen and (max-width: 600px) {
+    .conteneurPrincipal {
+        padding: 10px;
+    }
+}
+
+/* Media query pour écrans moyens (par exemple, de 601px à 900px de large) */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .conteneurPrincipal {
+        padding: 15px;
+    }
+}

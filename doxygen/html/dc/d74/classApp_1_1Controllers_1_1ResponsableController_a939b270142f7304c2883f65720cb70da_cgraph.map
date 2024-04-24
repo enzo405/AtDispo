@@ -1,0 +1,6 @@
+<map id="App\Controllers\ResponsableController\showCalendar" name="App\Controllers\ResponsableController\showCalendar">
+<area shape="rect" id="node1" title="Affiche le calendrier du formateur." alt="" coords="5,71,215,112"/>
+<area shape="rect" id="node2" href="$dc/d46/classApp_1_1Controllers_1_1EDTController.html#ae7d65cef911adf09fce9a89e46a85925" title="get the structure for a event" alt="" coords="270,5,485,47"/>
+<area shape="rect" id="node3" href="$d1/db9/classModels_1_1CalendriersDisponibilite.html#ad92275a7e08ef2f4aa53f7f0d31654f3" title="Return current year." alt="" coords="263,71,492,112"/>
+<area shape="rect" id="node4" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#afbd75fae59f2f9078c98a39f986fc1b5" title="Permet de rendre une view simple." alt="" coords="303,136,452,177"/>
+</map>

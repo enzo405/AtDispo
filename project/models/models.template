@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * models template baser sur le models user
+ *
+ */
+
+namespace Models;
+
+use App\Core\Model;
+
+class Role extends Model
+{
+    public string $libelleTypeCompte;
+
+    // optionnelle
+    protected function init(): void
+    {
+        // empty function because no need to init
+    }
+
+    // optionnelle
+    protected function preInit(): void
+    {
+        // empty function because no nedd to init
+    }
+
+    /**
+     * @var string Nom de la table MySQL hébergeant ce model
+     */
+    protected static $tableName = 'TypesCompte';
+    protected static $primaryKey = 'idTypeCompte';
+    protected static $properties = [
+        'libelleTypeCompte' => []
+    ];
+}

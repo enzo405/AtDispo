@@ -1,0 +1,179 @@
+.h2Calendrier{
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-bottom: 1px solid black;
+}
+
+.calendrier{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-row-gap: 2px;
+    width: 98%;
+    margin: 20px auto;
+    background-color: #ECF5F8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(178, 190, 223);
+}
+
+.calendrier>h3 {
+    padding: 15px;
+    background-color: rgb(178, 190, 223);
+    text-align: center;
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+    text-align: center;
+}
+
+.weekNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+}
+
+
+.dayContent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.day .weekNumber{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+}
+
+.dayContent > div{
+    border-radius: 10px;
+    margin: 2px;
+}
+.matin, .aprem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.matin h4, .aprem h4{
+    width: max-content;
+    min-width: 100%;
+    line-break: strict;
+    text-align: center;
+}
+
+.matin span, .aprem span{
+    display: block;
+    text-align: center;
+}
+
+.matin select, .aprem select{
+    width: 90%;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.weekNumber>p {
+    font-size: var(--grand-texte);
+}
+
+.day:nth-last-child(-n + 5) {
+    border-bottom: none;
+}
+
+.day:nth-child(6n) {
+    border-right: none;
+}
+
+.weekNumber:nth-last-child(-n + 6) {
+    border-bottom: none;
+}
+
+.floating-submit {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--button-color);
+    color: #FFF;
+    z-index: 999;
+    padding: 10px;
+}
+
+
+.feature-calendrier{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.couleursLegende {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    border: none;
+}
+
+.couleursLegende span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.couleursLegende div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.legendeCouleur {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.locked-creneau p{
+    height: 100%;
+    width: auto;
+    background: #939393;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.locked-creneau i {
+    font-size: 22px;
+}
+
+.container-envoie{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+@media (min-width: 0px) and (max-width: 900px) {    
+    .calendrier {
+        overflow-x: scroll;
+    }
+}

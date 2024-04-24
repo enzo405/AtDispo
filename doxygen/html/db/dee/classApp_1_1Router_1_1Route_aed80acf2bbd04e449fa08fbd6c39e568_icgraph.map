@@ -1,0 +1,4 @@
+<map id="App\Router\Route\requestMethodToType" name="App\Router\Route\requestMethodToType">
+<area shape="rect" id="node1" title="Transforme le type de requête en object HttpType." alt="" coords="268,5,457,47"/>
+<area shape="rect" id="node2" href="$d7/d97/classApp_1_1Router_1_1Router.html#a385485ef45021aebdeadb486dde16c14" title="Création de toutes les routes si la session contient le cache." alt="" coords="5,13,220,39"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="App\Controllers\AdminWaitingController\waitingOrganisme" name="App\Controllers\AdminWaitingController\waitingOrganisme">
+<area shape="rect" id="node1" title="Affiche la liste des organismes en attente de validation." alt="" coords="5,57,223,98"/>
+<area shape="rect" id="node2" href="$d6/d09/classApp_1_1Core_1_1Model.html#a783d3c9eaed91ebdd190da37b96d59fc" title="retourne le nombre d&#39;entrée dans la table" alt="" coords="271,5,493,32"/>
+<area shape="rect" id="node4" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a7843198f9b68e9f2f9a360dba4686d98" title="Permet obtenir un object View." alt="" coords="307,57,457,98"/>
+<area shape="rect" id="node5" href="$d6/d09/classApp_1_1Core_1_1Model.html#a00067add0b91c14878dae9e7866f485b" title="retourne une list items selon le nom de la colonne et la valeur" alt="" coords="289,123,475,149"/>
+<area shape="rect" id="node3" href="$d4/d38/classApp_1_1Core_1_1BDD.html#af1ae262bf951581acb4bfcf1a1014bf4" title="Retourne l&#39;instance de la connexion à la base de données." alt="" coords="541,64,736,91"/>
+</map>

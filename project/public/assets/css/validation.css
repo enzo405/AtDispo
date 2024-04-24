@@ -1,0 +1,62 @@
+/*----------------------------*/
+/*CSS PAGE VALIDATION         */
+/*----------------------------*/
+
+.h2AValider{
+    color: black;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-bottom: 1px solid black;
+}
+
+.contenuListeAValider{
+    display: grid;
+    width: 98%;
+    margin: 20px auto;
+    background-color: #ECF5F8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(178, 190, 223);
+}
+.grid-1{ grid-template-columns: repeat(1, auto); }
+.grid-2{ grid-template-columns: repeat(2, auto); }
+.grid-3{ grid-template-columns: repeat(3, auto); }
+.grid-4{ grid-template-columns: repeat(4, auto); }
+.grid-5{ grid-template-columns: repeat(5, auto); }
+
+.contenuListeAValider>h3 {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background-color: rgb(178, 190, 223);
+}
+
+.contenuListeAValider > p,
+.contenuListeAValider > form > p {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-bottom: 2px solid #ddd;
+}
+.contenuListeAValider > form > .containerAction { gap: 10px; }
+.contenuListeAValider > p { flex-direction: column; }
+
+form > p {
+    display: flex;
+}
+
+.formation-name{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 0px) and (max-width: 700px) {
+    .h1UtilisateurAValider{
+        font-size: var(--petit-titre);
+    }
+    
+    .contenuListeAValider {
+        overflow-x: scroll;
+    }
+}

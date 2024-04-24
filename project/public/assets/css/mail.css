@@ -1,0 +1,56 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
+.mdpOublieMail, .compteCreeMail, .ajoutEvenementMail, .mdpModifieMail, .planningPdfMail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+/* Titre */
+.h2TitreMail {
+    color: #333;
+}
+
+/* Contenu principal */
+.contenuListeMail {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.h3CompteCree, .pCompteCree   {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
+    gap: 10px; /* Espacement entre les colonnes */
+    text-align: center;  /* Centre le texte à l'intérieur des éléments */
+}
+
+/* Messages */
+.contenuListeMail h3,
+.contenuListeMail p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Erreur */
+.error {
+    color: #ff0000;
+}
+
+/* Liens */
+.contenuListeMail a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contenuListeMail a:hover {
+    text-decoration: underline;
+}
+
+

@@ -1,0 +1,5 @@
+<map id="App\Core\Controller\render" name="App\Core\Controller\render">
+<area shape="rect" id="node1" title="Permet de rendre une view simple." alt="" coords="263,39,412,80"/>
+<area shape="rect" id="node2" href="$d0/dc5/classApp_1_1Core_1_1PDFGenerator.html#abc95afcd1d5e352c944b5e0a3ad5c263" title="Permet de générer un pdf pour le tableau de disponibilités." alt="" coords="14,5,206,47"/>
+<area shape="rect" id="node3" href="$dc/d74/classApp_1_1Controllers_1_1ResponsableController.html#a939b270142f7304c2883f65720cb70da" title="Affiche le calendrier du formateur." alt="" coords="5,71,215,112"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Models\Formations\getFormationsByOrgaFormation" name="Models\Formations\getFormationsByOrgaFormation">
+<area shape="rect" id="node1" title="Méthode qui récupère les formations d&#39;un organisme." alt="" coords="292,39,536,80"/>
+<area shape="rect" id="node2" href="$da/d58/classApp_1_1Controllers_1_1FormationController.html#a82c03beefff6c40c72a2fe50492834ac" title="Affiche la liste des formations avec leurs nomsFormation, optionsFormation et les matieres." alt="" coords="29,5,221,47"/>
+<area shape="rect" id="node3" href="$d1/df1/classApp_1_1Controllers_1_1AdminOrganismeController.html#a9824e5a7b8c202953952fbabecd98d08" title="affiche et edit un organisme" alt="" coords="5,71,244,112"/>
+</map>

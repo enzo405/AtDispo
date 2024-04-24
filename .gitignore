@@ -1,0 +1,9 @@
+# Suppression des fichiers locaux de l'utilisateur du flux git
+*.local.php
+*.local.json
+.vscode
+.vs
+
+# Suppression du dossier vendor du flux git
+/project/vendor/
+composer.lock

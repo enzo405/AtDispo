@@ -1,0 +1,119 @@
+/*COMMUN AUTH*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.contenu {
+    background-color: var(--background-color-login);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 850px;
+    height: 570px;
+}
+
+.registerHeight {
+    height: 570px;
+}
+
+.loginHeight {
+    height: auto;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulaire h2 {
+    font-size: var(--grand-titre);
+    margin-bottom: 10px;
+}
+
+.formulaire form {
+    display: flex;
+    flex-direction: column;
+}
+
+.boutonEnvoyer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.field {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 15px;
+    min-width: 200px;
+    width: 250px;
+}
+
+.contenuFormulaire {
+    flex-basis: 90%;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .contenu{
+        width: 650px;
+    }
+
+    .contenuFormulaire {
+        flex-basis: 50%;
+    }
+
+    .ImageLogin {
+        flex-basis: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .contenu {   
+        width: 280px;
+    }
+
+    .loginHeight {
+        height: 370px;
+    }
+
+    .ImageLogin {
+        display: none;
+    }
+
+    .contenuFormulaire {
+        flex-basis: auto;
+    }
+}
+
+/* DEBUT LOGIN */
+.recuperationLogin {
+    margin-top: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recuperationLogin a, p {
+    font-size: var(--petit-texte);
+    font-weight: bold;
+}
+
+.recuperationLogin a {
+    text-decoration: underline;
+}
+
+.loginInscription {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+/* FIN LOGIN */

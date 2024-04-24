@@ -1,0 +1,8 @@
+<map id="App\Core\Model\countSelectBy" name="App\Core\Model\countSelectBy">
+<area shape="rect" id="node1" title="retourne le nombre d&#39;entrée dans la table" alt="" coords="296,143,519,170"/>
+<area shape="rect" id="node2" href="$d5/d8e/classApp_1_1Controllers_1_1AdminWaitingController.html#ab0dc31ba474673ee7a9133ec9e73ffd6" title="Affiche la liste des matieres en attente de validation." alt="" coords="18,5,235,47"/>
+<area shape="rect" id="node3" href="$d3/d88/classApp_1_1Controllers_1_1NomsFormationController.html#ab41d6912565db341689862baedf57401" title="Validation d&#39;un nom de formation." alt="" coords="5,71,248,112"/>
+<area shape="rect" id="node4" href="$d5/d8e/classApp_1_1Controllers_1_1AdminWaitingController.html#aff797080e378cf7d0372aae75c2bdd64" title="Ajoute une options pour la formation donné" alt="" coords="18,136,235,177"/>
+<area shape="rect" id="node5" href="$d5/d8e/classApp_1_1Controllers_1_1AdminWaitingController.html#af318cc571a22fdd976a29fd577e314f2" title="Affiche la liste des organismes en attente de validation." alt="" coords="18,201,235,243"/>
+<area shape="rect" id="node6" href="$d5/d8e/classApp_1_1Controllers_1_1AdminWaitingController.html#a1dbf3eb1ddcd6f429c22cdb0505d7226" title="Affiche la page qui liste toutes les pages de validation." alt="" coords="18,267,235,308"/>
+</map>
