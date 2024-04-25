@@ -1,5 +1,0 @@
-<map id="App\Controllers\FormationController\showFormation" name="App\Controllers\FormationController\showFormation">
-<area shape="rect" id="node1" title="Permet de voire une formation/edit une formation." alt="" coords="5,39,197,80"/>
-<area shape="rect" id="node2" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a7843198f9b68e9f2f9a360dba4686d98" title="Permet obtenir un object View." alt="" coords="258,5,407,47"/>
-<area shape="rect" id="node3" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#acfa6c3ba4c808ef9de803ec881fc404a" title="Permet de savoir si l&#39;utilisateur a accès à la formation." alt="" coords="245,71,420,112"/>
-</map>

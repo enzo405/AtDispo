@@ -1,6 +1,0 @@
-<map id="App\Router\Router\run" name="App\Router\Router\run">
-<area shape="rect" id="node1" title="Fait le match entre toutes les regex de chaque route et l&#39;url de HttpRequest Puis construits les para..." alt="" coords="5,78,172,105"/>
-<area shape="rect" id="node2" href="$dd/de8/classApp_1_1Router_1_1HttpRequest.html#a58ac75cd789f691f5a43fa21e058a367" title="Get the request method." alt="" coords="222,5,401,47"/>
-<area shape="rect" id="node3" href="$dd/de8/classApp_1_1Router_1_1HttpRequest.html#a3dd2b1151f4b4482883724f702d8f7d4" title="Get the request URI." alt="" coords="222,71,401,112"/>
-<area shape="rect" id="node4" href="$dd/de8/classApp_1_1Router_1_1HttpRequest.html#ace9cecbc8194107fba376aa052f2f9f8" title="Set the request parameters value." alt="" coords="220,136,403,177"/>
-</map>

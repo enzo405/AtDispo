@@ -1,6 +1,0 @@
-<map id="App\Core\Controller\hasAccessToFormation" name="App\Core\Controller\hasAccessToFormation">
-<area shape="rect" id="node1" title="Permet de savoir si l&#39;utilisateur a accès à la formation." alt="" coords="312,71,487,112"/>
-<area shape="rect" id="node2" href="$da/d58/classApp_1_1Controllers_1_1FormationController.html#a5a3900c2c64b2e00d9893383113267f7" title="Permet la 2ème étape de la création d&#39;une formation." alt="" coords="19,5,250,47"/>
-<area shape="rect" id="node3" href="$da/d58/classApp_1_1Controllers_1_1FormationController.html#adae9fad696661ef1f5f060315348ff28" title="Traitement de la 2ème étape de la création d&#39;une formation." alt="" coords="5,71,264,112"/>
-<area shape="rect" id="node4" href="$da/d58/classApp_1_1Controllers_1_1FormationController.html#a36dce005ff8672b03e019e4462c19ef7" title="Permet de voire une formation/edit une formation." alt="" coords="39,136,231,177"/>
-</map>

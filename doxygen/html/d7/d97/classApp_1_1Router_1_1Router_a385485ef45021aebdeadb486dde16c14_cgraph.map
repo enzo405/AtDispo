@@ -1,4 +1,0 @@
-<map id="App\Router\Router\buildRoute" name="App\Router\Router\buildRoute">
-<area shape="rect" id="node1" title="Création de toutes les routes si la session contient le cache." alt="" coords="5,13,220,39"/>
-<area shape="rect" id="node2" href="$db/dee/classApp_1_1Router_1_1Route.html#aed80acf2bbd04e449fa08fbd6c39e568" title="Transforme le type de requête en object HttpType." alt="" coords="268,5,457,47"/>
-</map>

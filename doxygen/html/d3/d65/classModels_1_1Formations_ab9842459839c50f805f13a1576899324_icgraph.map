@@ -1,4 +1,0 @@
-<map id="Models\Formations\countFormationsByOrgaFormation" name="Models\Formations\countFormationsByOrgaFormation">
-<area shape="rect" id="node1" title="Méthode qui récupère les formations d&#39;un organisme." alt="" coords="245,5,504,47"/>
-<area shape="rect" id="node2" href="$da/d58/classApp_1_1Controllers_1_1FormationController.html#a82c03beefff6c40c72a2fe50492834ac" title="Affiche la liste des formations avec leurs nomsFormation, optionsFormation et les matieres." alt="" coords="5,5,197,47"/>
-</map>

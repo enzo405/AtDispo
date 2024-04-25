@@ -1,6 +1,0 @@
-<map id="App\Controllers\AdminUserController\showUser" name="App\Controllers\AdminUserController\showUser">
-<area shape="rect" id="node1" title="Affiche un utilisateur." alt="" coords="5,35,204,76"/>
-<area shape="rect" id="node2" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a7843198f9b68e9f2f9a360dba4686d98" title="Permet obtenir un object View." alt="" coords="252,5,401,47"/>
-<area shape="rect" id="node3" href="$d6/d09/classApp_1_1Core_1_1Model.html#a9b73283335bf421970344a0bf0cce32c" title="Retourne la liste de tout les items de la table." alt="" coords="252,71,401,98"/>
-<area shape="rect" id="node4" href="$d4/d38/classApp_1_1Core_1_1BDD.html#af1ae262bf951581acb4bfcf1a1014bf4" title="Retourne l&#39;instance de la connexion à la base de données." alt="" coords="449,71,644,98"/>
-</map>

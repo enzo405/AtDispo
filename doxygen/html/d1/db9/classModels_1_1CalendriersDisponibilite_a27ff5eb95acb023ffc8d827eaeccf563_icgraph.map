@@ -1,4 +1,0 @@
-<map id="Models\CalendriersDisponibilite\getCalendrierDisponibiliteByUser" name="Models\CalendriersDisponibilite\getCalendrierDisponibiliteByUser">
-<area shape="rect" id="node1" title="Récupère le calendrier de disponibilité d&#39;un utilisateur." alt="" coords="245,5,488,47"/>
-<area shape="rect" id="node2" href="$d0/dc5/classApp_1_1Core_1_1PDFGenerator.html#abc95afcd1d5e352c944b5e0a3ad5c263" title="Permet de générer un pdf pour le tableau de disponibilités." alt="" coords="5,5,197,47"/>
-</map>

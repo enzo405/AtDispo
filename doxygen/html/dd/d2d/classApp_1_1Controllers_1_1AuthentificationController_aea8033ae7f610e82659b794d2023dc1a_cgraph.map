@@ -1,5 +1,0 @@
-<map id="App\Controllers\AuthentificationController\registerPost" name="App\Controllers\AuthentificationController\registerPost">
-<area shape="rect" id="node1" title="Traitement de la demande d&#39;inscription." alt="" coords="5,35,235,76"/>
-<area shape="rect" id="node2" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a3657fb1d69c6a5acf8583f928695909f" title="Empêche les utilisateurs connectés d&#39;accéder à la page." alt="" coords="289,5,439,47"/>
-<area shape="rect" id="node3" href="$df/d68/classModels_1_1User.html#a1105a8e226275f33381f5ad76c985c72" title="retourne une list items selon le nom de la colonne et la valeurtableau associatif avec nom collonne e..." alt="" coords="283,71,445,98"/>
-</map>

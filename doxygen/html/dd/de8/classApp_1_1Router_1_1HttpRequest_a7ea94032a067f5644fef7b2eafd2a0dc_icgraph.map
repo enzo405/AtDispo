@@ -1,4 +1,0 @@
-<map id="App\Router\HttpRequest\getRequestParamsValue" name="App\Router\HttpRequest\getRequestParamsValue">
-<area shape="rect" id="node1" title="Get the request parameters value." alt="" coords="273,5,457,47"/>
-<area shape="rect" id="node2" href="$db/dee/classApp_1_1Router_1_1Route.html#a5ae16f44ab6d7c4764119377f4c4337d" title="Fait le tableau associatif des paramètres [nameParams =&gt; valueParams]." alt="" coords="5,13,225,39"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="App\Router\HttpRequest\getRequestMethod" name="App\Router\HttpRequest\getRequestMethod">
-<area shape="rect" id="node1" title="Get the request method." alt="" coords="220,5,399,47"/>
-<area shape="rect" id="node2" href="$d7/d97/classApp_1_1Router_1_1Router.html#aa091c681a63eb7d0982022c9e71dbf44" title="Fait le match entre toutes les regex de chaque route et l&#39;url de HttpRequest Puis construits les para..." alt="" coords="5,13,172,39"/>
-</map>

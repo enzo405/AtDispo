@@ -1,6 +1,0 @@
-<map id="App\Core\Model\save" name="App\Core\Model\save">
-<area shape="rect" id="node1" title="permet ajout dans la base de donnée ou update" alt="" coords="5,56,165,83"/>
-<area shape="rect" id="node2" href="$d6/d09/classApp_1_1Core_1_1Model.html#af4de5ba3fc12678279bcd24300070f90" title="init function" alt="" coords="225,5,376,32"/>
-<area shape="rect" id="node3" href="$d6/d09/classApp_1_1Core_1_1Model.html#a4cac9d1ce141e200fc6ca7bf7dc248e4" title="insert un nouvelle object dans la database" alt="" coords="217,56,384,83"/>
-<area shape="rect" id="node4" href="$d6/d09/classApp_1_1Core_1_1Model.html#a3c346d481ce8dcbef818dd3f7232a720" title="update les information de object vers la database" alt="" coords="213,107,388,133"/>
-</map>

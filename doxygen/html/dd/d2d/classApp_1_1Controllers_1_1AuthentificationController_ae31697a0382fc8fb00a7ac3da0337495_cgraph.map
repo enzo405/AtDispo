@@ -1,5 +1,0 @@
-<map id="App\Controllers\AuthentificationController\login" name="App\Controllers\AuthentificationController\login">
-<area shape="rect" id="node1" title="Fonction de login." alt="" coords="5,39,235,80"/>
-<area shape="rect" id="node2" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a7843198f9b68e9f2f9a360dba4686d98" title="Permet obtenir un object View." alt="" coords="283,5,432,47"/>
-<area shape="rect" id="node3" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a3657fb1d69c6a5acf8583f928695909f" title="Empêche les utilisateurs connectés d&#39;accéder à la page." alt="" coords="283,71,432,112"/>
-</map>

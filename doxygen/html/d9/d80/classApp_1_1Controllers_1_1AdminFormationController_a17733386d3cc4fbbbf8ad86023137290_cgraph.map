@@ -1,7 +1,0 @@
-<map id="App\Controllers\AdminFormationController\listFormation" name="App\Controllers\AdminFormationController\listFormation">
-<area shape="rect" id="node1" title="Liste toutes les formations." alt="" coords="5,57,240,98"/>
-<area shape="rect" id="node2" href="$d6/d09/classApp_1_1Core_1_1Model.html#a598676333a03b1d17434b2c0db020cac" title="Retourne le nombre d&#39;entrée dans la table." alt="" coords="291,5,456,32"/>
-<area shape="rect" id="node4" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a7843198f9b68e9f2f9a360dba4686d98" title="Permet obtenir un object View." alt="" coords="299,57,448,98"/>
-<area shape="rect" id="node5" href="$d3/d65/classModels_1_1Formations.html#a3542f50b9a67ca0f5dd1ff8043cf7336" title="Retourne la liste de tout les items de la table.array" alt="" coords="288,123,459,149"/>
-<area shape="rect" id="node3" href="$d4/d38/classApp_1_1Core_1_1BDD.html#af1ae262bf951581acb4bfcf1a1014bf4" title="Retourne l&#39;instance de la connexion à la base de données." alt="" coords="507,5,701,32"/>
-</map>

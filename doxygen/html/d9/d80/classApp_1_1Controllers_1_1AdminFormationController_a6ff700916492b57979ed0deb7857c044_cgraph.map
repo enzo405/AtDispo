@@ -1,4 +1,0 @@
-<map id="App\Controllers\AdminFormationController\showFormation" name="App\Controllers\AdminFormationController\showFormation">
-<area shape="rect" id="node1" title="Permet de voire une formation/edit une formation." alt="" coords="5,5,240,47"/>
-<area shape="rect" id="node2" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a7843198f9b68e9f2f9a360dba4686d98" title="Permet obtenir un object View." alt="" coords="288,5,437,47"/>
-</map>

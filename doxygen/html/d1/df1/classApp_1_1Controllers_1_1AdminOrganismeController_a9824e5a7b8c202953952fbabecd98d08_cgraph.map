@@ -1,9 +1,0 @@
-<map id="App\Controllers\AdminOrganismeController\showOrganisme" name="App\Controllers\AdminOrganismeController\showOrganisme">
-<area shape="rect" id="node1" title="affiche et edit un organisme" alt="" coords="5,129,244,171"/>
-<area shape="rect" id="node2" href="$d3/d65/classModels_1_1Formations.html#a9957a9a3199c466f918313063eeb4e6f" title="Méthode qui récupère les formations d&#39;un organisme." alt="" coords="292,5,536,47"/>
-<area shape="rect" id="node3" href="$d9/dd0/classApp_1_1Core_1_1Controller.html#a7843198f9b68e9f2f9a360dba4686d98" title="Permet obtenir un object View." alt="" coords="339,71,489,112"/>
-<area shape="rect" id="node4" href="$d6/d09/classApp_1_1Core_1_1Model.html#a9b73283335bf421970344a0bf0cce32c" title="Retourne la liste de tout les items de la table." alt="" coords="339,137,489,163"/>
-<area shape="rect" id="node6" href="$d3/d65/classModels_1_1Formations.html#a3542f50b9a67ca0f5dd1ff8043cf7336" title="Retourne la liste de tout les items de la table.array" alt="" coords="329,187,499,214"/>
-<area shape="rect" id="node7" href="$d6/d09/classApp_1_1Core_1_1Model.html#a00067add0b91c14878dae9e7866f485b" title="retourne une list items selon le nom de la colonne et la valeur" alt="" coords="321,238,507,265"/>
-<area shape="rect" id="node5" href="$d4/d38/classApp_1_1Core_1_1BDD.html#af1ae262bf951581acb4bfcf1a1014bf4" title="Retourne l&#39;instance de la connexion à la base de données." alt="" coords="584,187,779,214"/>
-</map>

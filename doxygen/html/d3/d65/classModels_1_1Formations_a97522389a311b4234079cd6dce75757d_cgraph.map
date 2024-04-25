@@ -1,4 +1,0 @@
-<map id="Models\Formations\createWithoutDB" name="Models\Formations\createWithoutDB">
-<area shape="rect" id="node1" title="Méthode d&#39;instanciation d&#39;une formation sans la database." alt="" coords="5,5,196,47"/>
-<area shape="rect" id="node2" href="$d3/dc9/classModels_1_1SitesOrgaFormation.html#a041921e0f2f6382c9fe6d763d9fb01cf" title="Set the value of idOrganismeFormation." alt="" coords="244,5,447,47"/>
-</map>
