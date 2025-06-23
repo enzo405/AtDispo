@@ -1,6 +1,6 @@
 # AP3 Planning formateur
 
-> Site accessible en version de test sur https://atdispo-enzo.chaboisseau.net/login
+> Site accessible en version de test sur https://atdispo.luhcaran.fr
 
 ## 1. Contexte
 

@@ -11,7 +11,7 @@
  * Information principal du site
  */
 const MODE_DEV = FALSE;
-const SITE_NAME = 'atdispo-enzo.chaboisseau.net';
+const SITE_NAME = 'atdispo.luhcaran.fr';
 const SITE_ROOT = '';
 
 
