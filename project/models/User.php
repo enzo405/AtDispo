@@ -4,6 +4,7 @@ namespace Models;
 
 use App\Core\Model;
 use App\Exceptions\AccessDeniedException;
+use App\Exceptions\DisabledForDemoException;
 use App\Exceptions\ResourceNotFound;
 use Models\Role;
 use App\Core\BDD;
@@ -104,10 +105,8 @@ class User extends Model
     public static function list($offset = 0, $limit = 10): array
     {
         $pdo = BDD::getInstance();
-        // $sql = "SELECT * FROM " . $tableName . " LIMIT :limit, $offset ;";
-        
-        $requestResults = $pdo->query("SELECT * FROM " . User::$tableName . " LIMIT " . $offset . "," . $limit . ";")->fetchAll(PDO::FETCH_ASSOC);
-
+        $sql = "SELECT * FROM " . User::$tableName . " INNER JOIN Acces ON Acces.idCompte = Comptes.idCompte WHERE Acces.idTypeCompte != '4' GROUP BY Comptes.prenom LIMIT " . $offset . "," . $limit . ";";
+        $requestResults = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         $results = [];
         foreach ($requestResults as $result) {
             $obj = new User();
@@ -195,46 +194,60 @@ class User extends Model
 
     public function addRole($roleId): void
     {
-        $pdo = $this->getPDO();
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $pdo = $this->getPDO();
 
-        $sql = 'INSERT INTO `Acces` (`idCompte`, `idTypeCompte`) VALUES (:id, :roleId);';
+            $sql = 'INSERT INTO `Acces` (`idCompte`, `idTypeCompte`) VALUES (:id, :roleId);';
 
-        $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+            $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 
-        $sth->execute([
-            ":id" => $this->id,
-            ":roleId" => $roleId
-        ]);
+            $sth->execute([
+                ":id" => $this->id,
+                ":roleId" => $roleId
+            ]);
+        } else {
+            throw new DisabledForDemoException();
+        }
     }
 
     public function deleteRole($roleId): void
     {
-        $pdo = $this->getPDO();
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $pdo = $this->getPDO();
 
-        $sql = 'DELETE FROM `Acces` WHERE `Acces`.`idCompte` = :id AND `Acces`.`idTypeCompte` = :roleId';
-
-        $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-
-        $sth->execute([
-            ":id" => $this->id,
-            ":roleId" => $roleId
-        ]);
+            $sql = 'DELETE FROM `Acces` WHERE `Acces`.`idCompte` = :id AND `Acces`.`idTypeCompte` = :roleId';
+    
+            $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+    
+            $sth->execute([
+                ":id" => $this->id,
+                ":roleId" => $roleId
+            ]);
+        } else {
+            throw new DisabledForDemoException();
+        }
     }
 
     public function addOrganisme($organismeId): void
     {
-        $primaryKey = User::$primaryKey;
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $primaryKey = User::$primaryKey;
+            $pdo = $this->getPDO();
 
-        $pdo = $this->getPDO();
+            $sql = 'UPDATE `Comptes` SET `idOrganismeFormation` = :organismeId WHERE `' . $primaryKey . '` = :idCompte;';
 
-        $sql = 'UPDATE `Comptes` SET `idOrganismeFormation` = :organismeId WHERE `' . $primaryKey . '` = :idCompte;';
+            $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 
-        $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-
-        $sth->execute([
-            ":idCompte" => $this->id,
-            ":organismeId" => $organismeId
-        ]);
+            $sth->execute([
+                ":idCompte" => $this->id,
+                ":organismeId" => $organismeId
+            ]);
+        } else {
+            throw new DisabledForDemoException();
+        }
     }
 
     public function toString(){
@@ -317,20 +330,25 @@ class User extends Model
      * @return bool
      */
     public function addAccessToCalendar(int $calendarId, int $responsableId): bool{
-        $pdo = $this->getPDO();
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $pdo = $this->getPDO();
 
-        $sql = 'INSERT INTO `DisposIntervenant` (`idCalendrierDisponibilite`, `idCompte`) VALUES (:idCalendrierDisponibilite, :idCompte);';
+            $sql = 'INSERT INTO `DisposIntervenant` (`idCalendrierDisponibilite`, `idCompte`) VALUES (:idCalendrierDisponibilite, :idCompte);';
 
-        $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+            $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 
-        try {
-            $sth->execute([
-                ":idCalendrierDisponibilite" => $calendarId,
-                ":idCompte" => $responsableId
-            ]);
-            return TRUE;
-        } catch (\PDOException $e) {
-            return FALSE;
+            try {
+                $sth->execute([
+                    ":idCalendrierDisponibilite" => $calendarId,
+                    ":idCompte" => $responsableId
+                ]);
+                return TRUE;
+            } catch (\PDOException $e) {
+                return FALSE;
+            }
+        } else {
+            throw new DisabledForDemoException();
         }
     }
 
@@ -341,20 +359,25 @@ class User extends Model
      * @return void
      */
     public function removeAccessToCalendar(int $calendarId, int $responsableId): void{
-        $pdo = $this->getPDO();
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $pdo = $this->getPDO();
 
-        $sql = 'DELETE FROM `DisposIntervenant` 
-        WHERE idCalendrierDisponibilite = :idCalendrierDisponibilite AND idCompte = :idCompte;';
-
-        $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-
-        $sth->execute([
-            ":idCalendrierDisponibilite" => $calendarId,
-            ":idCompte" => $responsableId
-        ]);
-        // Si rien n'a été supprimé
-        if(empty($sth->rowCount())){
-            throw new ResourceNotFound("L'accès n'existe pas");
+            $sql = 'DELETE FROM `DisposIntervenant` 
+            WHERE idCalendrierDisponibilite = :idCalendrierDisponibilite AND idCompte = :idCompte;';
+    
+            $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+    
+            $sth->execute([
+                ":idCalendrierDisponibilite" => $calendarId,
+                ":idCompte" => $responsableId
+            ]);
+            // Si rien n'a été supprimé
+            if(empty($sth->rowCount())){
+                throw new ResourceNotFound("L'accès n'existe pas");
+            }
+        } else {
+            throw new DisabledForDemoException();
         }
     }
 
@@ -389,6 +412,14 @@ class User extends Model
     public function isEmailUnique($courriel): bool
     {
         if ($this->courriel == $courriel || empty(User::selectBy(['courriel' => $courriel]))) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    public function isSuperAdmin(): bool
+    {
+        if ($this->access(4)) {
             return TRUE;
         }
         return FALSE;

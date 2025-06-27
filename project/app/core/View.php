@@ -39,7 +39,7 @@ class View
         $viewData['title'] = $this->title;
         $viewData['siteRoot'] = SITE_ROOT;
         $viewData['pageDesc'] = $this->pageDesc;
-        $viewData['logged'] = isset($_SESSION['user_id']);
+        $viewData['logged'] = isset($_SESSION['userID']);
         $viewData['CSSFiles'] = $this->getHTMLCSS();
         $viewData['JSFiles'] = $this->getHTMLJS();
         if (isset($_SESSION['userID'])) {
@@ -81,7 +81,7 @@ class View
         $viewData['title'] = $this->title;
         $viewData['siteRoot'] = SITE_ROOT;
         $viewData['pageDesc'] = $this->pageDesc;
-        $viewData['logged'] = isset($_SESSION['user_id']);
+        $viewData['logged'] = isset($_SESSION['userID']);
         $viewData['CSSFiles'] = $this->getHTMLCSS();
         $viewData['JSFiles'] = $this->getHTMLJS();
         if (MODE_DEV) {

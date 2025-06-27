@@ -7,6 +7,9 @@ use App\Router\HttpRequest;
 
 const HTTP_REQUEST = new HttpRequest();
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__, 'stack.env');
+$dotenv->load();
+
 try {
     ob_start();
     // Import du fichier de conf

@@ -264,9 +264,11 @@ class Mailer
             // send mail
             $successful = 0;
             foreach ($this->to as $to) {
-                if (mail($to, $this->subject, $body, $headers)) {
-                    $successful++;
-                }
+                // Deacvtivate mail for demo
+               
+                // if (mail($to, $this->subject, $body, $headers)) {
+                //     $successful++;
+                // }
             }
 
             if ($successful === count($this->to)) {

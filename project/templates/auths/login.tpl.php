@@ -13,15 +13,15 @@
                     <h2>Login</h2>
                     <form action="<?= SITE_ROOT ?>/login" method="post">
                         <?php if(isset($errorMessage)) {
-                                echo('<div class="error">' . $errorMessage . '</div>');
+                            echo('<div class="error">' . $errorMessage . '</div>');
                         } ?>
                         <div class="field">
                             <label>E-mail</label>
-                            <input placeholder="Adresse E-mail" class="inputEmail" type="text" name="courriel" required>
+                            <input value="test1@test.com" placeholder="Adresse E-mail" class="inputEmail" type="text" name="courriel" required>
                         </div>
                         <div class="field">
                             <label>Mot de passe</label>
-                            <input placeholder="Mot de passe" class="inputMdp" type="password" name="password" id="passwordField" required>
+                            <input value="test" placeholder="Mot de passe" class="inputMdp" type="password" name="password" id="passwordField" required>
                             <span toggle="#passwordField" class="toggle-password"><i class="fa fa-eye" aria-hidden="true"></i></span>
                         </div>
                         <div class="boutonEnvoyer">

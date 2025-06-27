@@ -4,6 +4,7 @@ namespace Models;
 
 use App\Core\BDD;
 use App\Core\Model;
+use App\Exceptions\DisabledForDemoException;
 use App\Exceptions\ResourceNotFound;
 use PDO;
 
@@ -64,12 +65,17 @@ class CalendriersDisponibilite extends Model
 	 */
 	public function save(): void
     {
-		$this->dateMajEtat = date("Y-m-d H:i:s");
-        if (!isset($this->id)) {
-            $this->insert();
-            $this->init();
+		$user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+			$this->dateMajEtat = date("Y-m-d H:i:s");
+			if (!isset($this->id)) {
+				$this->insert();
+				$this->init();
+			} else {
+				$this->update();
+			}
         } else {
-            $this->update();
+            throw new DisabledForDemoException();
         }
     }
 

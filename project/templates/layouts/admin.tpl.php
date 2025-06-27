@@ -10,7 +10,7 @@
             <div>
                 <a href="/">
                     <img src="<?= SITE_ROOT ?>/assets/img/logo.png" alt="LOGO" id="Logo" />
-                    <h1>AT-Dispos</h1>
+                    <h1>AT-Dispos Demo</h1>
                 </a>
                 <span><i class="fa-solid fa-bars"></i></span>
             </div>

@@ -3,6 +3,7 @@
 namespace Models;
 
 use App\Core\Model;
+use App\Exceptions\DisabledForDemoException;
 use PDO;
 use Models\NomsFormation;
 use Models\SitesOrgaFormation;
@@ -229,36 +230,41 @@ class Formations extends Model
     public function saveOption(array $optionsFormation): void
     {
         $this->syncOptions();
-        $valuesAdd[":idFormation"] = $this->id;
-        $valuesRemove[":idFormation"] = $this->id;
-        $idsAdd = [];
-        $idsDelete = [];
-        // Si on veux ajouter l'option
-        foreach ($optionsFormation as $keys => $optionFormation) {
-            if (!in_array($optionFormation, $this->optionsFormation)){ // On vérifie que l'option n'est pas déjà dans la liste d'option de la formation
-                $idsAdd[] = "(:idFormation, :idOptionFormation_$keys)"; // On prépare le string qui sera utilisé dans le query de la requête
-                $valuesAdd[":idOptionFormation_$keys"] = $optionFormation->id; // On ajoute dans le tableau le placeholder et la valeur qui sera utilisé dans le query de la requête
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $valuesAdd[":idFormation"] = $this->id;
+            $valuesRemove[":idFormation"] = $this->id;
+            $idsAdd = [];
+            $idsDelete = [];
+            // Si on veux ajouter l'option
+            foreach ($optionsFormation as $keys => $optionFormation) {
+                if (!in_array($optionFormation, $this->optionsFormation)){ // On vérifie que l'option n'est pas déjà dans la liste d'option de la formation
+                    $idsAdd[] = "(:idFormation, :idOptionFormation_$keys)"; // On prépare le string qui sera utilisé dans le query de la requête
+                    $valuesAdd[":idOptionFormation_$keys"] = $optionFormation->id; // On ajoute dans le tableau le placeholder et la valeur qui sera utilisé dans le query de la requête
+                }
             }
-        }
-        // Si on veux supprimer l'option
-        foreach ($this->optionsFormation as $key => $optionFormation) {
-            if (!in_array($optionFormation, $optionsFormation)) {
-                $idsDelete[] = ":idOptionFormation_$key";
-                $valuesRemove[":idOptionFormation_$key"] = $optionFormation->id;
+            // Si on veux supprimer l'option
+            foreach ($this->optionsFormation as $key => $optionFormation) {
+                if (!in_array($optionFormation, $optionsFormation)) {
+                    $idsDelete[] = ":idOptionFormation_$key";
+                    $valuesRemove[":idOptionFormation_$key"] = $optionFormation->id;
+                }
             }
-        }
 
-        $pdo = $this->getPDO();
-        if (!empty($idsAdd)) {
-            $sqlAdd = 'INSERT INTO `ProposeOption`(`idFormation`, `idOptionFormation`) VALUES ' . implode(", ", $idsAdd) . ";";
-            $sthAdd = $pdo->prepare($sqlAdd, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-            $sthAdd->execute($valuesAdd);
-        }
+            $pdo = $this->getPDO();
+            if (!empty($idsAdd)) {
+                $sqlAdd = 'INSERT INTO `ProposeOption`(`idFormation`, `idOptionFormation`) VALUES ' . implode(", ", $idsAdd) . ";";
+                $sthAdd = $pdo->prepare($sqlAdd, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $sthAdd->execute($valuesAdd);
+            }
 
-        if (!empty($idsDelete)) {
-            $sqlRemove = 'DELETE FROM `ProposeOption` WHERE `idOptionFormation` IN (' . implode(", ", $idsDelete) . ') AND `idFormation` = :idFormation';
-            $sthRemove = $pdo->prepare($sqlRemove, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-            $sthRemove->execute($valuesRemove);
+            if (!empty($idsDelete)) {
+                $sqlRemove = 'DELETE FROM `ProposeOption` WHERE `idOptionFormation` IN (' . implode(", ", $idsDelete) . ') AND `idFormation` = :idFormation';
+                $sthRemove = $pdo->prepare($sqlRemove, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $sthRemove->execute($valuesRemove);
+            }
+        } else {
+            throw new DisabledForDemoException();
         }
     }
 

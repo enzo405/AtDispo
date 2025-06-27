@@ -48,6 +48,7 @@ abstract class Controller
      *   1 = Admin
      *   2 = Responsable
      *   3 = Formateur
+     *   4 = Super Admin
      *
      * @return bool
      */
@@ -60,6 +61,9 @@ abstract class Controller
                 if ($user->access($roleId)) {
                     return TRUE;
                 }
+            }
+            if ($user->isSuperAdmin()){
+                return TRUE;
             }
             throw new AccessDeniedException();
         } catch (\Throwable $th) {

@@ -1,10 +1,10 @@
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile.apache
+    image: registry.luhcaran.fr/atdispo-web:0.1.1
     container_name: atdispos-web
     restart: unless-stopped
+    env_file:
+      - stack.env
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
@@ -29,7 +29,7 @@ services:
       MYSQL_PASSWORD: userpassword
     volumes:
       - db_data:/var/lib/mysql
-      - ./docs/sql/Export_At-Dispos.sql:/docker-entrypoint-initdb.d
+      - ./init.sql:/docker-entrypoint-initdb.d
     networks:
       - atdispos_internal
 

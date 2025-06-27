@@ -3,6 +3,7 @@
 namespace Models;
 
 use App\Core\Model;
+use App\Exceptions\DisabledForDemoException;
 use App\Exceptions\InternalServerError;
 use Models\Matieres;
 use PDO;
@@ -65,37 +66,42 @@ class NomsFormation extends Model
      */
     public function saveMatieres(array $matieres)
     {
+        $user = new User($_SESSION["userID"]);
         $this->syncMatieres();
-        $valuesAdd[":idNomFormation"] = $this->id;
-        $valuesRemove[":idNomFormation"] = $this->id;
-        $idsAdd = [];
-        $idsDelete = [];
-        // Si on veux ajouter la matiere
-        foreach ($matieres as $key => $matiere) {
-            if (!in_array($matiere, $this->matieres)) {
-                $idsAdd[] = "(:idNomFormation, :idMatiere_$key)";
-                $valuesAdd[":idMatiere_$key"] = $matiere->id;
+        if ($user->isSuperAdmin()) {
+            $valuesAdd[":idNomFormation"] = $this->id;
+            $valuesRemove[":idNomFormation"] = $this->id;
+            $idsAdd = [];
+            $idsDelete = [];
+            // Si on veux ajouter la matiere
+            foreach ($matieres as $key => $matiere) {
+                if (!in_array($matiere, $this->matieres)) {
+                    $idsAdd[] = "(:idNomFormation, :idMatiere_$key)";
+                    $valuesAdd[":idMatiere_$key"] = $matiere->id;
+                }
             }
-        }
-        // Si on veux supprimer la matiere
-        foreach ($this->matieres as $key => $matiere) {
-            if (!in_array($matiere, $matieres)) {
-                $idsDelete[] = ":idMatiere_$key";
-                $valuesRemove[":idMatiere_$key"] = $matiere->id;
+            // Si on veux supprimer la matiere
+            foreach ($this->matieres as $key => $matiere) {
+                if (!in_array($matiere, $matieres)) {
+                    $idsDelete[] = ":idMatiere_$key";
+                    $valuesRemove[":idMatiere_$key"] = $matiere->id;
+                }
             }
-        }
 
-        $pdo = $this->getPDO();
-        if (!empty($idsAdd)) {
-            $sqlAdd = 'INSERT INTO `Contenus`(`idNomFormation`, `idMatiere`) VALUES ' . implode(", ", $idsAdd) . ";";
-            $sthAdd = $pdo->prepare($sqlAdd, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-            $sthAdd->execute($valuesAdd);
-        }
+            $pdo = $this->getPDO();
+            if (!empty($idsAdd)) {
+                $sqlAdd = 'INSERT INTO `Contenus`(`idNomFormation`, `idMatiere`) VALUES ' . implode(", ", $idsAdd) . ";";
+                $sthAdd = $pdo->prepare($sqlAdd, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $sthAdd->execute($valuesAdd);
+            }
 
-        if (!empty($idsDelete)) {
-            $sqlRemove = 'DELETE FROM `Contenus` WHERE `idMatiere` IN (' . implode(", ", $idsDelete) . ') AND `idNomFormation` = :idNomFormation';
-            $sthRemove = $pdo->prepare($sqlRemove, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-            $sthRemove->execute($valuesRemove);
+            if (!empty($idsDelete)) {
+                $sqlRemove = 'DELETE FROM `Contenus` WHERE `idMatiere` IN (' . implode(", ", $idsDelete) . ') AND `idNomFormation` = :idNomFormation';
+                $sthRemove = $pdo->prepare($sqlRemove, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $sthRemove->execute($valuesRemove);
+            }
+        } else {
+            throw new DisabledForDemoException();
         }
     }
 

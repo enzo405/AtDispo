@@ -3,7 +3,8 @@
     "description": "Gestionnaire employe du temps pour les formateur",
     "type": "projet",
     "require": {
-        "tecnickcom/tcpdf": "^6.6"
+        "tecnickcom/tcpdf": "^6.6",
+        "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "symfony/var-dumper": "^6.4"

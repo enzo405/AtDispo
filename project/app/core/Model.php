@@ -4,8 +4,9 @@ namespace App\Core;
 
 use App\Core\BDD;
 use App\Core\Validator;
-use App\Exceptions\InternalServerError;
+use App\Exceptions\DisabledForDemoException;
 use App\Exceptions\ResourceNotFound;
+use Models\User;
 use PDO;
 
 abstract class Model
@@ -87,11 +88,16 @@ abstract class Model
      */
     public function save(): void
     {
-        if (!isset($this->id)) {
-            $this->insert();
-            $this->init();
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            if (!isset($this->id)) {
+                $this->insert();
+                $this->init();
+            } else {
+                $this->update();
+            }
         } else {
-            $this->update();
+            throw new DisabledForDemoException();
         }
     }
 
@@ -154,23 +160,28 @@ abstract class Model
      */
     public function insert(): void
     {
-        $className = get_called_class();
-        $tableName = $className::$tableName;
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $className = get_called_class();
+            $tableName = $className::$tableName;
 
-        $tmpFieldsList = [];
-        $values = [];
-        foreach ($className::$properties as $property => $validationRules) {
-            $tmpFieldsList[] = ':' . $property;
-            $values[$property] = $this->$property;
+            $tmpFieldsList = [];
+            $values = [];
+            foreach ($className::$properties as $property => $validationRules) {
+                $tmpFieldsList[] = ':' . $property;
+                $values[$property] = $this->$property;
+            }
+
+            $sql = 'INSERT INTO `' . $tableName . '` ( ' . implode(',', array_keys($className::$properties)) . ')
+                VALUES (' . implode(',', $tmpFieldsList) . ')
+            ';
+
+            $sth = $this->pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+            $sth->execute($values);
+            $this->id = $this->pdo->lastInsertId();
+        } else {
+            throw new DisabledForDemoException();
         }
-
-        $sql = 'INSERT INTO `' . $tableName . '` ( ' . implode(',', array_keys($className::$properties)) . ')
-            VALUES (' . implode(',', $tmpFieldsList) . ')
-        ';
-
-        $sth = $this->pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-        $sth->execute($values);
-        $this->id = $this->pdo->lastInsertId();
     }
 
     /**
@@ -180,27 +191,32 @@ abstract class Model
      */
     public function update(): void
     {
-        $className = get_called_class();
-        $tableName = $className::$tableName;
-        $primaryKey = $className::$primaryKey;
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $className = get_called_class();
+            $tableName = $className::$tableName;
+            $primaryKey = $className::$primaryKey;
 
-        $tmpFieldsList = [];
-        $values = [
-            "id" => $this->id
-        ];
+            $tmpFieldsList = [];
+            $values = [
+                "id" => $this->id
+            ];
 
-        foreach ($className::$properties as $property => $validationRules) {
-            $tmpFieldsList[] = $property . ' = :' . $property;
-            $values[$property] = $this->$property;
+            foreach ($className::$properties as $property => $validationRules) {
+                $tmpFieldsList[] = $property . ' = :' . $property;
+                $values[$property] = $this->$property;
+            }
+
+            $sql = 'UPDATE `' . $tableName . '` SET
+                ' . implode(',', $tmpFieldsList) . '
+                WHERE ' . $primaryKey . ' = :id
+            ';
+
+            $sth = $this->pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+            $sth->execute($values);
+        } else {
+            throw new DisabledForDemoException();
         }
-
-        $sql = 'UPDATE `' . $tableName . '` SET
-            ' . implode(',', $tmpFieldsList) . '
-            WHERE ' . $primaryKey . ' = :id
-        ';
-
-        $sth = $this->pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-        $sth->execute($values);
     }
 
     /**
@@ -210,20 +226,25 @@ abstract class Model
      */
     public function delete(): void
     {
-        $className = get_called_class();
-        $tableName = $className::$tableName;
-        $primaryKey = $className::$primaryKey;
-
-        $sql = 'DELETE FROM `' . $tableName . '`
-            WHERE ' . $primaryKey . ' = :id
-        ';
-
-        $values = [
-            "id" => $this->id
-        ];
-
-        $sth = $this->pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-        $sth->execute($values);
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            $className = get_called_class();
+            $tableName = $className::$tableName;
+            $primaryKey = $className::$primaryKey;
+    
+            $sql = 'DELETE FROM `' . $tableName . '`
+                WHERE ' . $primaryKey . ' = :id
+            ';
+    
+            $values = [
+                "id" => $this->id
+            ];
+    
+            $sth = $this->pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+            $sth->execute($values);
+        } else {
+            throw new DisabledForDemoException();
+        }
     }
 
     /**

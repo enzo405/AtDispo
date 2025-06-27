@@ -2,6 +2,7 @@
 
 namespace Models;
 
+use App\Exceptions\DisabledForDemoException;
 use PDO;
 use App\Core\Model;
 use App\Exceptions\ResourceNotFound;
@@ -33,15 +34,19 @@ class OptionsFormation extends Model
      */
     public function saveOptionFormation(int $idFormation): void
     {
-        parent::save(); // d'abord on enregistre l'option puis ensuite une fois qu'il est instancier dans la BDD on peut l'associer à la formation
+        $user = new User($_SESSION["userID"]);
+        if ($user->isSuperAdmin()) {
+            parent::save(); // d'abord on enregistre l'option puis ensuite une fois qu'il est instancier dans la BDD on peut l'associer à la formation
+            $formation = new Formations($idFormation);
 
-        $formation = new Formations($idFormation);
-
-        if (!in_array($this->id, $formation->getOptionsFormation())){ // On vérifie que l'option n'est pas déjà dans la liste d'option de la formation
-            $pdo = $this->getPDO();
-            $sql = 'INSERT INTO `ProposeOption`(`idFormation`, `idOptionFormation`) VALUES (:idFormation, :idOptionFormation)';
-            $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-            $sth->execute([":idFormation" => $idFormation, ":idOptionFormation" => $this->id]);
+            if (!in_array($this->id, $formation->getOptionsFormation())){ // On vérifie que l'option n'est pas déjà dans la liste d'option de la formation
+                $pdo = $this->getPDO();
+                $sql = 'INSERT INTO `ProposeOption`(`idFormation`, `idOptionFormation`) VALUES (:idFormation, :idOptionFormation)';
+                $sth = $pdo->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $sth->execute([":idFormation" => $idFormation, ":idOptionFormation" => $this->id]);
+            }
+        } else {
+            throw new DisabledForDemoException();
         }
     }
 
