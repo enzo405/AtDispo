@@ -1,0 +1,5 @@
+# Use the official MariaDB image as the base image
+FROM mariadb:latest
+
+# Copy any initialization scripts if needed
+COPY init.sql /docker-entrypoint-initdb.d/
